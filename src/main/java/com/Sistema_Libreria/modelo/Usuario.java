@@ -9,12 +9,13 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Libro {
+public class Usuario {
     @Id
-    @Column(name="id_libro")
+    @Column(name="id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    private String autor;
-    private String isbn;
+    private String email;
+    private String telefono;
+    private String direccion;
 }

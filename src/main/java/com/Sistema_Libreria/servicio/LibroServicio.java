@@ -3,9 +3,11 @@ package com.Sistema_Libreria.servicio;
 import com.Sistema_Libreria.modelo.Libro;
 import com.Sistema_Libreria.repositorio.LibroRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LibroServicio implements ILibroServicio{
 
     @Autowired
@@ -23,10 +25,12 @@ public class LibroServicio implements ILibroServicio{
         return libro;
     }
 
-    @Override
-    public Libro buscarLibroPorIsbn(String isbn) {
-        return libroRepositorio.findByIsbn(isbn);
-    }
+//    @Override
+//    public Libro buscarLibroPorIsbn(String isbn) {
+//        Libro libro = libroRepositorio.findById(isbn).orElse(null);
+//        return libro;
+//    }
+
 
     @Override
     public void guardarLibro(Libro libro) {
