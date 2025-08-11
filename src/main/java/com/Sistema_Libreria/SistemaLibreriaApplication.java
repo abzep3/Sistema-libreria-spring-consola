@@ -1,7 +1,9 @@
 package com.Sistema_Libreria;
 
 import com.Sistema_Libreria.modelo.Libro;
+import com.Sistema_Libreria.modelo.Usuario;
 import com.Sistema_Libreria.servicio.ILibroServicio;
+import com.Sistema_Libreria.servicio.IUsuarioServicio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,9 @@ import java.util.Scanner;
 @SpringBootApplication
 public class SistemaLibreriaApplication implements CommandLineRunner {
 
-	
+	@Autowired
+	private IUsuarioServicio usuarioServicio;
+
 	@Autowired
 	private ILibroServicio libroServicio; //inyección de dependencias, no olvidar
 
@@ -48,6 +52,7 @@ public class SistemaLibreriaApplication implements CommandLineRunner {
 	private int mostrarMenu(Scanner consola){
 		logger.info("""
 				1. Listar Contactos
+				2. Listar Usuarios
 				Elige una opción:\s""");
 		var opcion = Integer.parseInt(consola.nextLine());
 		return opcion;
@@ -60,6 +65,18 @@ public class SistemaLibreriaApplication implements CommandLineRunner {
 				logger.info(nl + "--- Listado de Libros" + nl);
 				List<Libro> libros = libroServicio.listarLibros();
 				libros.forEach(libro -> logger.info(libro.toString() + nl));
+			}
+			case 2 -> {
+				logger.info(nl + "--- Listado de Usuarios" + nl);
+				List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+				usuarios.forEach(usuario -> logger.info(usuario.toString() + nl));
+			}
+			case 3 ->{
+				logger.info(nl + "Ingresar Nuevo Prestamo" + nl);
+				logger.info("Seleccionar Usuario: " + nl);
+				logger.info("Seleccionar Libro: " + nl);
+
+
 			}
 
 		}
