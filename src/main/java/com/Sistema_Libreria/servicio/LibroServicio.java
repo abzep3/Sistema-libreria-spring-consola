@@ -25,6 +25,11 @@ public class LibroServicio implements ILibroServicio{
         return libro;
     }
 
+    @Override
+    public Libro buscarLibroPorIsbn(String isbn) {
+        return libroRepositorio.findByIsbn(isbn);
+    }
+
 //    @Override
 //    public Libro buscarLibroPorIsbn(String isbn) {
 //        Libro libro = libroRepositorio.findById(isbn).orElse(null);

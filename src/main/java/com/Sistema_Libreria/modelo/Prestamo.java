@@ -24,6 +24,8 @@ public class Prestamo {
     @JoinColumn(name="id_libro", nullable = false)
     private Libro libro;
 
+    private boolean disponible = true;
     private LocalDate fechaPrestamo;
+    private boolean devuelto = false;
     private LocalDate fechaDevolucion;
 }

@@ -17,4 +17,5 @@ public class Libro {
     private String nombre;
     private String autor;
     private String isbn;
+    private boolean disponible;
 }
